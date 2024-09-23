@@ -1,0 +1,117 @@
+/* Importing Google Fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+/* Assigning hex-colors to variables */
+
+:root {
+  --bg-col: #151320;
+  --font-col: #fff;
+  --col1: #fd004c;
+  --col2: #fe9000;
+  --col3: #fff020;
+  --col4: #3edf4b;
+  --col5: #3363ff;
+  --col6: #b102b7;
+  --col7: #fd004c;
+}
+
+/* Setting up default to Zero */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Parent wrapper */
+
+.wrapper {
+  width: 100%;
+  height: 100dvh;
+  background-color: var(--bg-col);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Container */
+
+.container {
+  position: relative;
+  width: 18em;
+  height: 18em;
+  border-radius: 5px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Main Container's before element */
+
+.container::before {
+  content: "";
+  display: grid;
+  width: 150%;
+  height: 150%;
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  background: conic-gradient(
+    var(--col1),
+    var(--col2),
+    var(--col3),
+    var(--col4),
+    var(--col5),
+    var(--col6),
+    var(--col7)
+  );
+  animation: spin 1.5s linear infinite;
+}
+
+/* Animating Rainbow Border to rotate */
+
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Main Container's before element */
+
+.container::after {
+  content: "Rainbow";
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  background-color: var(--bg-col);
+  border-radius: 5px;
+
+  /* For styling Text */
+
+  color: white;
+  text-transform: uppercase;
+  display: grid;
+  place-items: center;
+  font-size: 1.5em;
+  letter-spacing: 0.15em;
+}
+
+/* For Responisveness */
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 14em;
+    height: 14em;
+  }
+  .container::after {
+    font-size: 1.2em;
+  }
+}
